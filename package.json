@@ -1,0 +1,23 @@
+{
+  "name": "docx-generator-wikipedia",
+  "version": "1.0.0",
+  "description": "Software for generate docx files with wikipedia content",
+  "main": "index.js",
+  "dependencies": {
+    "docx": "^4.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuibaGold/Docx-generator-Wikipedia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuibaGold/Docx-generator-Wikipedia/issues"
+  },
+  "homepage": "https://github.com/GuibaGold/Docx-generator-Wikipedia#readme"
+}
