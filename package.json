@@ -4,7 +4,8 @@
   "description": "Software for generate docx files with wikipedia content",
   "main": "index.js",
   "dependencies": {
-    "docx": "^4.7.1"
+    "docx": "^4.7.1",
+    "readline-sync": "^1.4.9"
   },
   "devDependencies": {},
   "scripts": {
