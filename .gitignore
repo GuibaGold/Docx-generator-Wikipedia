@@ -64,4 +64,5 @@ typings/
 credentials/*.json
 
 # .docx files
-*.docx
+*.docx  
+wikipedia-content.json
