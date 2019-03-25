@@ -4,12 +4,18 @@ const algorithmiaApiKey = require('../Credentials/algorithmia.json').apiKey;
 const docx = require('docx');
 const fileSystem = require('fs');
 
-async function robot(searchContent){
+const state = require('./state.js');
+
+async function robot(){
+    const searchContent = state.load();
+
     await fetchContentFromWikipedia(searchContent);
     await summarizeWikipediaContet(searchContent);
     generateDocx(searchContent);
 
-    
+    state.save(searchContent);
+
+
     async function fetchContentFromWikipedia(searchContent) {
         
         const portugueseSearchContent = {
@@ -32,7 +38,7 @@ async function robot(searchContent){
 
         const algorithmiaAuthenticated = algorithmiaSummarizeURL(algorithmiaApiKey);
         const summarizeAlgorithm = algorithmiaAuthenticated.algo('nlp/SummarizeURL/0.1.4');
-        const summarizeResponse = await summarizeAlgorithm.pipe(urlSearchContent);
+        const summarizeResponse = await summarizeAlgorithm.pipe(urlSearchContent,searchContent.numberOfSentences);
         const summarizedContent = summarizeResponse.get();
 
         searchContent.summarizedContent = summarizedContent

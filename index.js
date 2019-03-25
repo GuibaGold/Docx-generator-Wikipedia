@@ -1,21 +1,16 @@
 const readline = require('readline-sync');
 const robots = {
-    text: require('./robots/text')
+    text: require('./robots/text.js'),
+    input: require('./robots/input.js'),
+    state: require('./robots/state.js')
 }
 
 
 async function start(){
-    const searchContent = {};
-
-    searchContent.searchTheme = askAndReturnSearchTheme();
-
-    await robots.text(searchContent);
-
-    function askAndReturnSearchTheme(){
-        return readline.question('Type your research theme: ');
-    }
-
-    console.log(searchContent);
+    robots.input();
+    await robots.text();
+    const searchContent = robots.state.load()
+    console.dir(searchContent, { depth: null });
 }
 
 start();
